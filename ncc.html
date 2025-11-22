@@ -368,7 +368,7 @@
 
     // === УТИЛИТА: Создание ID чата для двух участников ===
     function getChatID(uid1, uid2) {
-        return uid1 < uid2 ? `${uid1}_${uid2}` : `${uid2}_${uid2}`;
+        return uid1 < uid2 ? `${uid1}_${uid2}` : `${uid2}_${uid1}`; // ИСПРАВЛЕНИЕ: Был дубликат UID2
     }
 
     // === ЛОГИКА МАРШРУТИЗАЦИИ (ROUTING) ===
@@ -791,7 +791,8 @@
         let shouldOpenChatFromURL = !currentChatId && window.location.hash.startsWith('#chat:');
 
         for (const docSnap of snap.docs) {
-          // ИСПРАВЛЕНИЕ: Используем 'let' для всех переменных внутри цикла, чтобы избежать ошибки "Assignment to constant variable"
+          // ИСПРАВЛЕНИЕ ОШИБКИ "Assignment to constant variable": 
+          // ВСЕ ПЕРЕМЕННЫЕ, СОЗДАВАЕМЫЕ В ЦИКЛЕ, ДОЛЖНЫ БЫТЬ 'let'.
           let chat = docSnap.data();
           let chatId = docSnap.id;
           
