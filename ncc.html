@@ -342,16 +342,16 @@
     import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
     import { getFirestore, collection, addDoc, doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, query, where, orderBy, serverTimestamp, arrayUnion } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+    // --- ИСПОЛЬЗУЕМ ВАШУ КОНФИГУРАЦИЮ FIREBASE ---
     const firebaseConfig = {
-      // !!! ВСТАВЬ СВОИ ДАННЫЕ !!!
-      apiKey: "AIzaSyCMIycG5PIAl_RyBbz_fp8ORoFr0HtphMg", 
+      apiKey: "AIzaSyCMIycG5PIAl_RyBbz_fp8ORoFr0HtphMg",
       authDomain: "nccnet-bbf93.firebaseapp.com",
       projectId: "nccnet-bbf93",
       storageBucket: "nccnet-bbf93.firebasestorage.app",
       messagingSenderId: "898678182620",
       appId: "1:898678182620:web:9662b8252e35930ce31a19"
-      // !!! ВСТАВЬ СВОИ ДАННЫЕ !!!
     };
+    // ---------------------------------------------
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -368,7 +368,7 @@
 
     // === УТИЛИТА: Создание ID чата для двух участников ===
     function getChatID(uid1, uid2) {
-        return uid1 < uid2 ? `${uid1}_${uid2}` : `${uid2}_${uid1}`;
+        return uid1 < uid2 ? `${uid1}_${uid2}` : `${uid2}_${uid2}`;
     }
 
     // === ЛОГИКА МАРШРУТИЗАЦИИ (ROUTING) ===
